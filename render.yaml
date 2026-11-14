@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: kit-voice-assistant
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: COLLEGE_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TIMEZONE
+        value: Asia/Kolkata

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knotopian Institute of Technology – Login</title>
+<script src="/static/theme.js"></script>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="site" id="site-header"></header>
+<main class="page-narrow" id="main">
+  <div class="card auth-card">
+    <h1>Welcome back</h1>
+    <p class="empty-note">Students and teachers sign in to use personal services by voice.</p>
+    <form id="login-form" novalidate>
+      <div class="field"><label for="login_id">Login ID</label><input id="login_id" autocomplete="username" required autofocus></div>
+      <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
+      <p class="form-error" id="form-error" role="alert"></p>
+      <button class="btn primary" type="submit">Sign in</button>
+    </form>
+    <div class="demo">
+      Demo accounts (password <b>Kit@2026</b>). Tap one to fill the form:
+      <div class="row">
+        <button class="btn small" type="button" data-demo="arjun">arjun · student</button>
+        <button class="btn small" type="button" data-demo="priya">priya · student</button>
+        <button class="btn small" type="button" data-demo="lakshmi">lakshmi · teacher</button>
+        <button class="btn small" type="button" data-demo="senthil">senthil · teacher</button>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="/static/common.js"></script>
+<script src="/static/login.js"></script>
+</body>
+</html>

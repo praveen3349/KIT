@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knotopian Institute of Technology – Voice Assistant</title>
+<meta name="description" content="Talk to the Knotopian Institute of Technology assistant about admissions, courses and student services.">
+<script src="/static/theme.js"></script>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site" id="site-header"></header>
+<main id="main">
+  <section class="hero container">
+    <div>
+      <p class="eyebrow">Admissions open</p>
+      <h1 id="college-name">Knotopian Institute of Technology</h1>
+      <p class="lead" id="college-intro">A college where ideas get tangled up in the best way. Ask our voice assistant about courses, eligibility, fees and dates, or apply for admission in a conversation.</p>
+      <div class="welcome-banner" id="welcome" hidden><span id="welcome-text"></span></div>
+      <ul class="facts" id="college-facts"></ul>
+      <div class="cta">
+        <a class="btn primary" href="#courses">Explore courses</a>
+        <a class="btn" href="/login" id="login-cta">Student &amp; staff login</a>
+      </div>
+      <div class="hero-points" aria-label="KIT assistant benefits">
+        <span><b>●</b> Voice-first guidance</span>
+        <span><b>●</b> Instant, verified answers</span>
+        <span><b>●</b> Private by design</span>
+      </div>
+    </div>
+    <div id="assistant"></div>
+  </section>
+  <section class="block container" id="courses">
+    <h2>Courses</h2>
+    <p class="sub">Eligibility, fees and seats. Ask the assistant for details or to start an application.</p>
+    <div class="grid" id="course-grid" aria-live="polite">
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <section class="footer-brand">
+      <a class="footer-mark" href="/" aria-label="KIT home"><span>∞</span> KIT</a>
+      <p>Clear answers and practical support for every step of your KIT journey—from admissions to campus life.</p>
+      <div class="footer-badges"><span>Voice-first</span><span>Private by design</span><span>Live college data</span></div>
+    </section>
+    <section>
+      <h2>Explore KIT</h2>
+      <a href="#courses">Courses &amp; eligibility</a>
+      <a href="#assistant">Talk to admissions</a>
+      <a href="/login">Student &amp; staff login</a>
+    </section>
+    <section>
+      <h2>Student services</h2>
+      <a href="/login">Attendance &amp; timetable</a>
+      <a href="/login">Leave &amp; on-duty requests</a>
+      <a href="/history">Conversation history</a>
+    </section>
+    <section>
+      <h2>Get in touch</h2>
+      <a href="tel:+914222619000">+91 422 261 9000</a>
+      <a href="mailto:admissions@kit.ac.in">admissions@kit.ac.in</a>
+      <p class="footer-address">Knotopian Knowledge City<br>Coimbatore, Tamil Nadu 641042</p>
+    </section>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 Knotopian Institute of Technology</span><span>Hackathon demonstration · No personal data is shared publicly</span></div>
+</footer>
+<script src="/static/common.js"></script>
+<script src="/static/assistant.js"></script>
+<script src="/static/home.js"></script>
+</body>
+</html>
