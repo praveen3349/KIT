@@ -63,7 +63,7 @@ const KIT = (() => {
       title: "Change colour theme", text: themeIcon(theme),
       onclick: () => {
         const current = themes.get();
-        const next = current === "system" ? "dark" : current === "dark" ? "light" : "system";
+        const next = current === "light" ? "dark" : current === "dark" ? "system" : "light";
         themes.set(next);
         themeButton.textContent = themeIcon(next);
         themeButton.title = `Theme: ${next}. Click to change.`;
