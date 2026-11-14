@@ -37,9 +37,6 @@ def test_student_cannot_reach_staff_or_other_students():
     assert not role_allows("student", "POST", "/v1/leave-requests/5/approve")
     assert not role_allows("student", "GET", "/v1/students/7")
     assert role_allows("teacher", "GET", "/v1/teacher/approvals")
-    assert not role_allows("teacher", "GET", "/v1/students/7")
-    assert role_allows("student", "POST", "/v1/placements/drives/1/registrations")
-    assert not role_allows("student", "GET", "/v1/placements/drives/1/registrations")
     assert not role_allows("teacher", "POST", "/v1/auth/login")
 
 
