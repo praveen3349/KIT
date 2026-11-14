@@ -56,6 +56,16 @@ def test_login_logout_and_cookie_flags(client):
     assert client.get("/api/session").json()["role"] == "public"
 
 
+def test_login_cookie_is_encrypted_and_survives_without_sqlite_session(client):
+    ok = client.post("/api/login", json={"login_id": "arjun", "password": "Kit@2026"})
+    cookie = ok.cookies.get("kit_session")
+    assert cookie and "tok-arjun" not in cookie and "arjun" not in cookie
+    from kit import db
+    import asyncio
+    asyncio.run(db.delete_session(cookie))  # cookie is stateless; opaque DB miss is safe
+    assert client.get("/api/session").json()["login_id"] == "arjun"
+
+
 def test_student_flow_uses_tool_then_answers(client, monkeypatch):
     client.post("/api/login", json={"login_id": "arjun", "password": "Kit@2026"})
     calls = []

@@ -30,6 +30,7 @@ PUBLIC_GET = [re.compile(p) for p in (
     r"^/v1/college$", r"^/v1/today$",
     r"^/v1/courses(/[^/]+)?$", r"^/v1/placements/drives(/[^/]+)?$")]
 PUBLIC_POST = [re.compile(r"^/v1/admissions/applications$")]
+STUDENT_OWNED_WRITE = re.compile(r"^/v1/placements/drives/[^/]+/registrations$")
 
 
 @dataclass
@@ -56,15 +57,18 @@ def is_public_allowed(method: str, path: str) -> bool:
 
 
 def role_allows(role: str, method: str, path: str) -> bool:
-    segs = [s for s in path.split("/") if s]
-    if path.startswith("/v1/auth") or ".." in path:
+    if path.startswith("/v1/auth") or ".." in path or not path.startswith("/v1/"):
         return False
+    # Least privilege is enforced independently of model instructions and the
+    # changing OpenAPI schema. Personal users receive only /me routes; staff
+    # receive only their /teacher queue and their own /me routes.
     if role == "student":
-        if any(STAFF_SEGMENT.match(s) for s in segs):
-            return False
-        if len(segs) > 1 and segs[1] == "students":      # other students' records
-            return False
-    return True
+        return (path.startswith("/v1/me/") or (method == "GET" and is_public_allowed(method, path)) or
+                (method == "POST" and bool(STUDENT_OWNED_WRITE.match(path))))
+    if role == "teacher":
+        return (path.startswith("/v1/me/") or path.startswith("/v1/teacher/") or
+                (method == "GET" and is_public_allowed(method, path)))
+    return False
 
 
 def permitted(owner: Owner, method: str, path: str) -> bool:
