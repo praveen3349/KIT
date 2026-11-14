@@ -14,7 +14,7 @@ HALLUCINATIONS = {"you", "thanks for watching", "thank you for watching", "bye",
 STT_PROMPT = ("Knotopian Institute of Technology, KIT, attendance, on-duty, leave request, "
               "placement drive, admission, timetable, hostel, semester.")
 _http: httpx.AsyncClient | None = None
-VOICE_CHOICES = {"autumn", "diana", "hannah", "austin", "daniel", "troy"}
+VOICE_CHOICES = {"autumn", "hannah", "troy"}
 
 
 class VoiceError(Exception):

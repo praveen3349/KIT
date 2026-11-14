@@ -10,7 +10,7 @@
       `Signed in as ${session.name || session.login_id} (${session.role}). Your conversations are saved in History.`;
   }
 
-  const SKIP = new Set(["id", "name", "title", "course_name", "description", "about", "summary", "intro", "tagline", "motto"]);
+  const SKIP = new Set(["id", "code", "name", "title", "course_name", "description", "about", "summary", "intro", "tagline", "motto"]);
   const pick = (o, keys) => keys.map((k) => o && o[k]).find((v) => typeof v === "string" && v.trim());
   const primitives = (o) => Object.entries(o || {}).filter(([k, v]) => !SKIP.has(k) && ["string", "number", "boolean"].includes(typeof v) && String(v).length < 60);
 
@@ -21,8 +21,6 @@
     if (name) document.getElementById("college-name").textContent = name;
     const intro = pick(data, ["description", "about", "intro", "summary", "tagline", "motto"]);
     if (intro) document.getElementById("college-intro").textContent = intro;
-    const facts = document.getElementById("college-facts");
-    for (const [k, v] of primitives(data).slice(0, 4)) facts.append(el("li", {}, el("b", { text: label(k) + ":" }), String(v)));
   } catch (_) { /* the page still works with its default intro */ }
 
   const grid = document.getElementById("course-grid");

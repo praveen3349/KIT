@@ -76,6 +76,12 @@ section.block .sub{color:var(--muted);margin:0 0 22px}
 .skeleton{height:150px;border-radius:18px;background:linear-gradient(90deg,var(--soft),var(--surface),var(--soft));background-size:200% 100%;animation:shimmer 1.4s infinite}
 @keyframes shimmer{to{background-position:-200% 0}}
 .empty-note{color:var(--muted)}
+.campus-feature{display:grid;grid-template-columns:1.12fr .88fr;gap:0;margin-top:34px;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.campus-image-wrap{min-height:430px;overflow:hidden}.campus-image-wrap img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}.campus-feature:hover img{transform:scale(1.025)}
+.campus-copy{padding:54px 46px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.campus-copy h2,.study-copy h2{font-size:clamp(2rem,3.3vw,3rem)}.campus-copy>p:not(.eyebrow),.study-copy>p:not(.eyebrow){color:var(--muted);font-size:1.04rem;max-width:48ch}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);width:100%;gap:12px;margin:22px 0}.stat-row div{display:flex;flex-direction:column;padding:11px 0;border-top:1px solid var(--line)}.stat-row strong{font-family:var(--serif);font-size:1.5rem;color:var(--primary)}.stat-row span{font-size:.75rem;color:var(--muted)}
+.text-link{font-weight:700;text-decoration:none}.text-link span{font-size:1.25rem;margin-left:4px}.text-link:hover{text-decoration:underline}
+.study-feature{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:center;padding:88px 20px}.study-feature>img{width:100%;aspect-ratio:1.26;object-fit:cover;border-radius:24px;box-shadow:var(--shadow)}.study-copy{display:flex;flex-direction:column;align-items:flex-start}.service-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.service-pills span{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 11px;font-size:.82rem;font-weight:650;color:var(--primary)}
 
 /* assistant */
 .assistant{display:flex;flex-direction:column;height:min(78vh,720px);min-height:560px;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden;position:relative}
@@ -127,6 +133,8 @@ section.block .sub{color:var(--muted);margin:0 0 22px}
 .form-error{color:var(--danger);min-height:1.4em;margin:0 0 8px;font-size:.92rem}
 .demo{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted)}
 .demo .row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.login-layout{min-height:calc(100vh - 65px);display:grid;place-items:center;padding:56px 20px;background:linear-gradient(110deg,rgba(3,27,33,.72),rgba(3,27,33,.4)),url('/static/images/kit-campus-hero.png') center/cover fixed}
+.login-panel{display:grid;place-items:center;width:100%}.login-panel .auth-card{width:min(100%,490px);padding:34px 38px;background:color-mix(in srgb,var(--surface) 94%,transparent);box-shadow:0 24px 70px rgba(0,0,0,.28);border-radius:26px;backdrop-filter:blur(12px)}.auth-card h1{font-size:2.25rem}.field input:focus{border-color:var(--accent);outline:3px solid color-mix(in srgb,var(--accent) 20%,transparent);background:var(--surface)}
 .history{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:20px;padding:32px 20px;align-items:start}
 .conv-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .conv-item{width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 14px;cursor:pointer}
@@ -156,6 +164,7 @@ section.block .sub{color:var(--muted);margin:0 0 22px}
   nav.main-nav{display:none}
   .assistant{height:82vh}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .campus-feature{grid-template-columns:1fr}.campus-image-wrap{min-height:300px}.campus-copy{padding:38px 28px}.study-feature{grid-template-columns:1fr;padding:58px 20px}.study-feature>img{order:-1}.login-layout{padding:36px 18px;background-attachment:scroll}
 }
 @media (max-width:560px){
   .footer-grid{grid-template-columns:1fr;gap:24px}

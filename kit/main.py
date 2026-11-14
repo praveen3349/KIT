@@ -164,9 +164,9 @@ async def login(body: LoginIn, request: Request):
 
 @app.post("/api/logout")
 async def logout(request: Request):
-    sid = request.cookies.get("kit_session")
-    if sid:
-        await db.delete_session(sid)
+    owner = await current_owner(request)
+    if owner.session_id:
+        await db.delete_session(owner.session_id)
     response = JSONResponse({"ok": True})
     response.delete_cookie("kit_session", path="/")
     return response

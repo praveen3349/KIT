@@ -22,6 +22,9 @@ COLLEGE_API_URL = os.getenv("COLLEGE_API_URL", "https://ht.knowvally.com").rstri
 COLLEGE_API_KEY = os.getenv("COLLEGE_API_KEY", "")
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+# Encrypts the stateless session cookie used on serverless hosts. Set a unique
+# value in production; local development safely falls back to the private API key.
+SESSION_SECRET = os.getenv("SESSION_SECRET", "")
 # Models are tried in order; if one is missing or rate limited the next one is used.
 CHAT_MODELS = _list("CHAT_MODELS", "openai/gpt-oss-120b,openai/gpt-oss-20b")
 STT_MODELS = _list("STT_MODELS", "whisper-large-v3-turbo,whisper-large-v3")

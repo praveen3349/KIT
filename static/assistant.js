@@ -52,8 +52,7 @@
             <div><span class="a-title"></span><span class="badge"></span></div>
             <div class="toggles">
               <label class="voice-choice"><span>Voice</span><select class="t-voice" aria-label="Reply voice">
-                <option value="hannah">Hannah</option><option value="autumn">Autumn</option><option value="diana">Diana</option>
-                <option value="austin">Austin</option><option value="daniel">Daniel</option><option value="troy">Troy</option>
+                <option value="hannah">Hannah · Female</option><option value="autumn">Autumn · Female</option><option value="troy">Troy · Male</option>
               </select></label>
               <label class="toggle"><input type="checkbox" class="t-hands"><span>Hands-free</span></label>
               <label class="toggle"><input type="checkbox" class="t-speak"><span>Voice replies</span></label>
